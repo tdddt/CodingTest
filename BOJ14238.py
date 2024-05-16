@@ -14,7 +14,7 @@ for i in range(L):
     worker[ord(S[i])-65] +=1
 
 ans=['?' for _ in range(L)]
-dp = [[[[[False for _ in range(3)] for _ in range(3)] for _ in range(L)] for _ in range(L)] for _ in range(L)]
+dp = [[[[[False for _ in range(3)] for _ in range(2)] for _ in range(L)] for _ in range(L)] for _ in range(L)]
 
 def dfs(a,b,c,bb,cc): # a,b,c의 횟수 bb,cc: b와 c의 가능여부(0일 때면 일할 수 있는 상태)
     if([a,b,c]==worker):
@@ -26,7 +26,7 @@ def dfs(a,b,c,bb,cc): # a,b,c의 횟수 bb,cc: b와 c의 가능여부(0일 때�
     if(bb<0): bb=0
     if(cc<0): cc=0
     
-    if dp[a][b][c][bb][cc]:
+    if dp[a][b][c][bb][cc]: # LLL23
         return False
 
     dp[a][b][c][bb][cc] = True
